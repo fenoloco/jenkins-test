@@ -2,8 +2,9 @@ pipeline {
   agent any
   stages {
     stage('Ask to deploy') {
+      agent any
       steps {
-        input(message: 'Do you want to Deploy?', id: '1', ok: 'Yes', submitter: '1', submitterParameter: 'deploy_enable')
+        input(message: 'Do you want to Deploy?', id: 'deploy_enable', ok: 'Yes')
       }
     }
     stage('Print User Option') {
