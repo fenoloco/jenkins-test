@@ -1,9 +1,7 @@
-node {
-    // Clean workspace before doing anything
-    deleteDir()
-
-    try {
-        stage ('Clone') {
+pipeline {
+  agent any
+  stages {
+		stage ('Clone') {
             checkout scm
         }
         stage ('Build') {
@@ -23,8 +21,6 @@ node {
         stage ('Deploy') {
             sh "echo 'shell scripts to deploy to server...'"
         }
-    } catch (err) {
-        currentBuild.result = 'FAILED'
-        throw err
-    }
+  }
+
 }
