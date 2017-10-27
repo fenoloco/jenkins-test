@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Ask to deploy') {
       steps {
-        input(message: 'Do you want to Deploy?', id: '1', ok: 'Yes', submitter: 'true', submitterParameter: 'deploy_enable')
+        input(message: 'Do you want to Deploy?', id: '1', ok: 'Yes', submitter: '1', submitterParameter: 'deploy_enable')
       }
     }
     stage('Print User Option') {
