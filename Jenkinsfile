@@ -1,10 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage('message') {
+    stage('Ask to deploy') {
       steps {
-        echo 'Do you want to deploy?'
-        input(message: 'Do you want to Deploy?', id: '1', ok: '1', submitter: '2', submitterParameter: '3')
+        input(message: 'Do you want to Deploy?', id: '1', ok: 'Yes', submitter: 'true', submitterParameter: 'deploy_enable')
+      }
+    }
+    stage('Print User Option') {
+      steps {
+        echo '${deploy_enable}'
       }
     }
   }
